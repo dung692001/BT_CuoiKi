@@ -1,0 +1,55 @@
+﻿@model ThucTapTaiTruong.Models.Entities.ChucVu
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong text-danger text-uppercase>Ten</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button class="btn btn-sm btn-success" type="submit" name="create"><i class="fas fa-save"></i></button>
+                            <a href="@Url.Action("Index","ChucVus")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="form-horizontal">
+                        
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TenChucVu, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TenChucVu, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TenChucVu, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}

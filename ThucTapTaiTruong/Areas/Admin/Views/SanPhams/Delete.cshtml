@@ -1,0 +1,106 @@
+﻿@model ThucTapTaiTruong.Models.Entities.SanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger text-uppercase">Xóa sản phẩm</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @*@Html.ActionLink("Create New", "Create", "Phim")*@
+                            <a href="~/Admin/SanPhams/Edit/@Model.MaSanPham" class="btn btn-sm btn-success">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <button class="btn btn-sm btn-danger" type="submit" name="Delete"><i class="fas fa-trash"></i></button>
+                            <a href="@Url.Action("Index", "SanPhams")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Tên loại hàng
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+                            </dd>
+
+                            <dt>
+                                Tên sản phẩm
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenSP)
+                            </dd>
+
+                            <dt>
+                                Giá
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Gia)
+                            </dd>
+
+                            <dt>
+                                Khuyến mãi
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.KhuyenMai)
+                            </dd>
+
+                            <dt>
+                                Số lượng
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SoLuong)
+                            </dd>
+
+                            <dt>
+                                Mô tả
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MoTa)
+                            </dd>
+
+                            <dt>
+                                Xóa
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Xoa)
+                            </dd>
+
+                        </dl>
+            
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    
+}

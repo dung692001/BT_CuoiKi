@@ -1,0 +1,99 @@
+﻿@model ThucTapTaiTruong.Models.Entities.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Ten</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        @*@Html.ActionLink("Create New", "Create", "Phim")*@
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSanPham }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <h4>SanPham</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TheLoai.TenTheLoai)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TheLoai.TenTheLoai)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenSP)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TenSP)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Gia)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Gia)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.KhuyenMai)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.KhuyenMai)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SoLuong)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.SoLuong)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MoTa)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MoTa)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Xoa)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Xoa)
+                        </dd>
+
+                    </dl>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+

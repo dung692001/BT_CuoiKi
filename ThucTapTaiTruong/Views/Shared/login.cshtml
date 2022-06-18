@@ -1,0 +1,80 @@
+﻿@model ThucTapTaiTruong.Models.Entities.NguoiDung
+<!-- MAIN -->
+<main class="site-main site-login">
+    <div class="container">
+        <ol class="breadcrumb-page">
+            <li><a href="#">Home </a></li>
+            <li class="active"><a href="#">Login</a></li>
+        </ol>
+    </div>
+    <div class="customer-login">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5 class="title-login">Log in to your account</h5>
+                    <p class="p-title-login">Wellcome to your account.</p>
+                    @using (Html.BeginForm("UserLogin", "Furniture", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email) <span class="required">*</span>
+                            @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(p => p.Password) <span class="required">*</span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                        </div>
+                        <div class="form-group">
+                             <input type="submit" name="submit" class="btn btn-primary" value="Login" />
+                         </div>}
+
+                </div>
+                <div class="col-sm-6 border-after">
+                    <h5 class="title-login">Great an account</h5>
+                    <p class="p-title-login">Fersonal infomation</p>
+                    
+                    @if (ViewBag.error != "")
+                    {
+                        <h3 class="text-center text-danger" style="font-size : 1.5rem">@ViewBag.error</h3>
+                    }
+
+                    @using (Html.BeginForm("UserRegister", "Furniture", FormMethod.Post))
+                    {
+                    @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label>Tên người dùng</label>
+                            @Html.TextBoxFor(m => m.HoTenND, "", new { @class = "form-control", @placeholder = "First Name" })
+                            @Html.ValidationMessageFor(m => m.HoTenND, "", new { @class = "badge badge-danger" })
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoai</label>
+                            @Html.TextBoxFor(m => m.SoDienThoai, new { @class = "form-control", @placeholder = "SoDienThoai" })
+                            @Html.ValidationMessageFor(m => m.SoDienThoai, "", new { @class = "badge badge-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email)
+                            @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+                            @if (ViewBag.error != null)
+                            {
+                                <span class="badge badge-danger">@ViewBag.error</span>
+                             }
+                        </div>
+                        <div style="left: -999em; position: absolute;">
+                            <label for="trap">Anti-spam</label>
+                            <input type="text" name="email_2" id="trap" tabindex="-1" />
+                        </div>
+                        <div class="form-group">
+                             @Html.LabelFor(m => m.Password)
+                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                             @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                         </div>
+                         <div class="form-group">
+                             <input type="submit" name="submit" class="btn btn-primary" value="Register"/>
+                         </div>
+                    }
+            </div>
+        </div>
+    </div>
+</main><!-- end MAIN -->

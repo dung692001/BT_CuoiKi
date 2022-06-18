@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ThucTapTaiTruong.Models.Entities.TheLoai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Thể loại</strong>
+                    </div>
+                    <div class="col-md-6 text-right">                      
+                        <a href="@Url.Action("Create","TheLoais")" class="btn btn-sm btn-success"><i class="fas fa-plus"></i>Thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            Tên thể loại
+                        </th>
+                        <th>
+                            Độ ưu tiên
+                        </th>
+                        <th>
+                            Trạng thái
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenTheLoai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DoUuTien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TrangThai)
+                            </td>
+                            <td>
+                                <a href="~/Admin/TheLoais/Edit/@item.MaTheLoai" class="btn btn-sm btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+
+                                <a href="~/Admin/TheLoais/Delete/@item.MaTheLoai" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+

@@ -1,0 +1,75 @@
+﻿@model ThucTapTaiTruong.Models.Entities.Anh
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong text-danger text-uppercase>Ten</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="~/Admin/Anhs/Edit/@Model.MaAnh" class="btn btn-sm btn-success">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <button class="btn btn-sm btn-danger" type="submit" name="Delete"><i class="fas fa-trash"></i></button>
+                            <a href="@Url.Action("Index", "Anhs")" class="btn btn-sm btn-info"><i class="fas fa-long-arrow-alt-left" s></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h4>Anh</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SanPham.TenSP)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.SanPham.TenSP)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TenAnh)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.TenAnh)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.URL)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.URL)
+                            </dd>
+
+                        </dl>                        
+                       
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+}
+

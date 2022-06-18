@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ThucTapTaiTruong.Models.Entities.NguoiDung>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Người dùng</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Create","NguoiDungs")" class="btn btn-sm btn-success"><i class="fas fa-plus"></i>Thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            Quyền
+                        </th>
+                        <th>
+                            Họ tên
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Số điện thoại
+                        </th>
+                        <th>
+                            Địa chỉ
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ChucVu.TenChucVu)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HoTenND)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SoDienThoai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiaChi)
+                            </td>
+                            <td>
+                                <a href="~/Admin/NguoiDungs/Edit/@item.MaND" class="btn btn-sm btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+
+                                <a href="~/Admin/NguoiDungs/Delete/@item.MaND" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<ThucTapTaiTruong.Models.Entities.Anh>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/Layout_Admin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong class="text-danger text-uppercase">Ảnh sản phẩm</strong>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="@Url.Action("Create","Anhs")" class="btn btn-sm btn-success"><i class="fas fa-plus"></i>Thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Tên ảnh
+                        </th>
+                        <th>
+                            Ảnh Sản phẩm
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenAnh)
+                            </td>
+                            <td>
+                                
+                                <img style="width:70px;height:75px" src="~/Content/images/home2/@item.URL" />
+                            </td>
+                            <td>
+                                <a href="~/Admin/Anhs/Edit/@item.MaAnh" class="btn btn-sm btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+
+                                <a href="~/Admin/Anhs/Delete/@item.MaAnh" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
